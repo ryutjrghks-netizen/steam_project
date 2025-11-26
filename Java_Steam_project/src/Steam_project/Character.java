@@ -32,7 +32,10 @@ public class Character {
 	
 	public int getHp() {
 		return hp;
-		
+	}
+	
+	public int getDamage() {
+		return damage;
 	}
 
 }

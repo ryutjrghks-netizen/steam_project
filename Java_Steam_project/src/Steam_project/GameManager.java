@@ -24,6 +24,8 @@ public class GameManager {
 
     private void printMenu(Player player) {
         System.out.println("----------------------------------------");
+        System.out.println("현재 경험치: " + player.getExp());
+        System.out.println("현재 공격력: " + player.getDamage());
         System.out.println("현재 체력: " + player.getHp());
         System.out.println("1.전투 개시 | 4.도주");
         System.out.println("----------------------------------------");
@@ -49,6 +51,8 @@ public class GameManager {
         if (player.isAlive()) {
             System.out.println(player.getName() + "의 승리!");
             System.out.println("현재 남은 체력: " + player.getHp());
+            System.out.println(monster.getExpOffer() + " 경험치 획득!");
+            player.gainExp(monster.getExpOffer());
         } else {
             System.out.println("패배.");
         }

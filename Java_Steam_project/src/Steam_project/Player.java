@@ -10,6 +10,10 @@ public class Player extends Character{
 		this.level=1;
 	}
 	
+	public int getExp() {
+		return exp;
+	}
+	
 	public void gainExp(int amount) {
 		exp+=amount;
 		if(exp>=100) {
