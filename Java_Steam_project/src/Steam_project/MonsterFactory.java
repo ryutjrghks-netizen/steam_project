@@ -2,6 +2,9 @@ package Steam_project;
 
 import java.util.Random;
 
+import Monsters.Goblin;
+import Monsters.Wolf;
+
 public class MonsterFactory {
 	private static Random random = new Random();
 	
@@ -10,19 +13,19 @@ public class MonsterFactory {
 		
 		switch(num) {
 			case 0:
-				return new Monster("고블린", 20, 5, 10, "고블린");
+				return new Goblin();
 			case 1:
 				return new Monster("홉고블린", 30, 10, 15, "고블린");
 			case 2:
-				return new Monster("늑대", 35, 10, 25, "늑대");
+				return new Wolf();
 			case 3:
-				return new Monster("스켈레톤", 15, 15, 20, "해골");
+				return new Monster("스켈레톤", 15, 15, 20, "언데드");
 			case 4:
 				return new Monster("오크", 40, 20, 35, "오크");
 			case 5:
-				return new Monster("트롤", 50, 30, 50, "");
+				return new Monster("트롤", 50, 30, 50, "트롤");
 			default:
-				return new Monster("고스트", 1, 1, 1, "");
+				return new Monster("고스트", 1, 1, 1, "유령");
 			
 		}
 	}

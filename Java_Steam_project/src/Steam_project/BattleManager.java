@@ -34,12 +34,13 @@ public class BattleManager {
                     player.attack(monster);
                     if (!monster.isAlive()) break;
 
-                    monster.specialAttack(player); // 몬스터 특수 능력
                     monster.attack(player);
                     break;
 
                 case "2":
                     System.out.println("방어 태세를 취했습니다. (아직 기능 없음)\n");
+                    
+                    monster.attack(player);
                     break;
 
                 case "3":
@@ -64,7 +65,7 @@ public class BattleManager {
         } else if(!player.isAlive() && monster.isAlive()) {
             System.out.println("여정이 끝을 맞았습니다..");
         } else {
-            System.out.println("아무것도 얻지 못했습니다..");
+            System.out.println("아무것도 얻지 못했습니다..\n");
         }
     }
 }

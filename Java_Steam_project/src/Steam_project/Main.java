@@ -15,7 +15,7 @@ public class Main {
 		
 		Player player = new Player(name, 100, 15);
 		
-		
+		System.out.println("\n" + player.getName() + "이(가) 고전적인 던전에 발을 들였습니다..");
 		
 		gm.startGame(player);
 	}

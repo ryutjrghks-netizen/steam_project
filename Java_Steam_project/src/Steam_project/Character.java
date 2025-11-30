@@ -2,7 +2,7 @@ package Steam_project;
 
 public class Character {
 	protected String name;
-	protected int hp;
+	public int hp;
 	protected int damage;
 	protected int maxHp;
 	protected int shield;
@@ -23,13 +23,13 @@ public class Character {
 	}
 	
 	public boolean isAlive() {
-		return hp>0;
+		return hp > 0;
 	}
 	
 	public void attack(Character target) {
 		System.out.println(name+"이(가) "+target.name+"을(를) 공격합니다.\n");
 		System.out.println(Character.this.name + " -> " + target.name + "에게 " + Character.this.damage + " 데미지!");
-		target.hp-=damage;
+		target.hp -= damage;
 		if(target.isAlive()) {
 			System.out.println(target.name+"의 남은 체력: "+target.hp+"\n");
 		} else {

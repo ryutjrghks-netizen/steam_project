@@ -16,6 +16,10 @@ public class Player extends Character{
 		return exp;
 	}
 	
+	public int getLevel() {
+		return level;
+	}
+	
 	public void battleStart() {
 		this.originalDamage = this.damage;
 	}
@@ -32,7 +36,7 @@ public class Player extends Character{
 			damage += 5;
 			hp += 100;
 			maxHp += 10;
-			System.out.println("레벨 업! 현재 레벨: "+level + "공격력 5 증가, 최대 체력 10 증가");
+			System.out.println("레벨 업! 현재 레벨: " + level + " 공격력 5 증가, 최대 체력 10 증가");
 		}
 	}
 	
