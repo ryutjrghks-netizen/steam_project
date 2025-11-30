@@ -34,27 +34,46 @@ public class GameManager {
 
     private void startBattle(Player player) {
     	
-		Monster monster = new Monster("고블린", 30, 8, 30);
-		
-        System.out.println("전투 개시");
+    	Monster monster = MonsterFactory.getRandomMonster();
+    	
+        System.out.println("\n전투 개시!");
         System.out.println("\n---------------적이 나타났다!---------------\n");
-
-        while(player.isAlive() && monster.isAlive()) {
-            player.attack(monster);
-            if (!monster.isAlive()) break;
-
-            monster.attack(player);
+        System.out.println("▶ 나타난 몬스터: "+ monster.getName()+"\n");
+        
+        
+        outer: while(player.isAlive() && monster.isAlive()) {
+        	System.out.println("1. 공격 | 2. 방어 | 3. 아이템 | 4. 도주");
+        	System.out.println("행동 선택> ");
+        	
+        	String battleOption = scanner.nextLine();
+        	
+        	switch(battleOption) {
+        		case "1":
+        			player.attack(monster);
+    	            if (!monster.isAlive()) break;
+    	
+    	            monster.attack(player);
+        		case "2":
+        			break;
+        		case "3":
+        			break;
+        		case "4":
+        			System.out.println("도망쳤습니다.");
+        			break outer;
+        	}     
         }
 
         System.out.println("\n-----------------전투 종료!-----------------\n");
 
-        if (player.isAlive()) {
+        if (player.isAlive() && !monster.isAlive()) {
             System.out.println(player.getName() + "의 승리!");
             System.out.println("현재 남은 체력: " + player.getHp());
             System.out.println(monster.getExpOffer() + " 경험치 획득!");
             player.gainExp(monster.getExpOffer());
-        } else {
+        } else if(!player.isAlive() && monster.isAlive()) {
             System.out.println("패배.");
+        } else {
+        	System.out.println("아무것도 얻지 못했습니다..");
         }
     }
 }
