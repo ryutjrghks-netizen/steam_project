@@ -3,7 +3,10 @@ package Steam_project;
 import java.util.Scanner;
 
 public class GameManager {
+	private int turn;
+	
     private Scanner scanner = new Scanner(System.in);
+    private BattleManager battleManager = new BattleManager();
 
     public void startGame(Player player) {
         outer: while(player.isAlive()) {
@@ -13,8 +16,13 @@ public class GameManager {
 
             switch(option) {
                 case "1":
-                    startBattle(player);
+                    battleManager.startBattle(player);
                     break;
+                
+                case "2":
+                	player.rest(player.maxHp / 3);
+                	break;
+                	
                 case "4":
                     System.out.println("도망쳤습니다..");
                     break outer;
@@ -23,57 +31,15 @@ public class GameManager {
     }
 
     private void printMenu(Player player) {
-        System.out.println("----------------------------------------");
-        System.out.println("현재 경험치: " + player.getExp());
+        System.out.println("----------------------------------------");        
+        System.out.println("현재 체력: " + player.getHp() + " / " + player.getMaxHp());
         System.out.println("현재 공격력: " + player.getDamage());
-        System.out.println("현재 체력: " + player.getHp());
-        System.out.println("1.전투 개시 | 4.도주");
+        System.out.println("현재 경험치: " + player.getExp() + " / 100");
         System.out.println("----------------------------------------");
+        System.out.println("1.나아가기 | 2. 휴식하기 | 4.도주");
+        System.out.println("----------------------------------------");
+        
         System.out.print("행동 선택> ");
     }
 
-    private void startBattle(Player player) {
-    	
-    	Monster monster = MonsterFactory.getRandomMonster();
-    	
-        System.out.println("\n전투 개시!");
-        System.out.println("\n---------------적이 나타났다!---------------\n");
-        System.out.println("▶ 나타난 몬스터: "+ monster.getName()+"\n");
-        
-        
-        outer: while(player.isAlive() && monster.isAlive()) {
-        	System.out.println("1. 공격 | 2. 방어 | 3. 아이템 | 4. 도주");
-        	System.out.println("행동 선택> ");
-        	
-        	String battleOption = scanner.nextLine();
-        	
-        	switch(battleOption) {
-        		case "1":
-        			player.attack(monster);
-    	            if (!monster.isAlive()) break;
-    	
-    	            monster.attack(player);
-        		case "2":
-        			break;
-        		case "3":
-        			break;
-        		case "4":
-        			System.out.println("도망쳤습니다.");
-        			break outer;
-        	}     
-        }
-
-        System.out.println("\n-----------------전투 종료!-----------------\n");
-
-        if (player.isAlive() && !monster.isAlive()) {
-            System.out.println(player.getName() + "의 승리!");
-            System.out.println("현재 남은 체력: " + player.getHp());
-            System.out.println(monster.getExpOffer() + " 경험치 획득!");
-            player.gainExp(monster.getExpOffer());
-        } else if(!player.isAlive() && monster.isAlive()) {
-            System.out.println("패배.");
-        } else {
-        	System.out.println("아무것도 얻지 못했습니다..");
-        }
-    }
 }

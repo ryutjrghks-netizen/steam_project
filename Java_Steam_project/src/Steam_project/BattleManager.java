@@ -1,0 +1,70 @@
+package Steam_project;
+
+import java.util.Scanner;
+
+public class BattleManager {
+
+    private Scanner scanner = new Scanner(System.in);
+
+    public void startBattle(Player player) {
+
+        Monster monster = MonsterFactory.getRandomMonster();
+
+        System.out.println("\n전투 개시!");
+        System.out.println("\n---------------적이 나타났다!---------------\n");
+        System.out.println("▶ 나타난 몬스터: "+ monster.getName()+"\n");
+
+        outer: while(player.isAlive() && monster.isAlive()) {
+        	
+            
+        	System.out.println("적 남은 체력: " + monster.getHp() + " | 적의 공격력: " + monster.getDamage());
+            System.out.println("나의 남은 체력: " + player.getHp() + " | 나의 공격력: " + player.getDamage());
+            System.out.println("------------------------------------");
+            System.out.println("1. 공격 | 2. 방어 | 3. 아이템 | 4. 도주");
+            System.out.println("------------------------------------");
+
+            
+
+            System.out.println("\n행동 선택> ");
+
+            String battleOption = scanner.nextLine();
+
+            switch(battleOption) {
+                case "1":
+                    player.attack(monster);
+                    if (!monster.isAlive()) break;
+
+                    monster.specialAttack(player); // 몬스터 특수 능력
+                    monster.attack(player);
+                    break;
+
+                case "2":
+                    System.out.println("방어 태세를 취했습니다. (아직 기능 없음)\n");
+                    break;
+
+                case "3":
+                    System.out.println("아이템 사용 (아직 기능 없음)\n");
+                    break;
+
+                case "4":
+                    System.out.println("\n도망쳤습니다.");
+                    break outer;
+            }
+        }
+
+        System.out.println("\n-----------------전투 종료!-----------------\n");
+        
+        player.battleEnd();
+        
+        if (player.isAlive() && !monster.isAlive()) {
+            System.out.println(player.getName() + "의 승리!");
+            System.out.println("현재 남은 체력: " + player.getHp());
+            System.out.println(monster.getExpOffer() + " 경험치 획득!\n");
+            player.gainExp(monster.getExpOffer());
+        } else if(!player.isAlive() && monster.isAlive()) {
+            System.out.println("여정이 끝을 맞았습니다..");
+        } else {
+            System.out.println("아무것도 얻지 못했습니다..");
+        }
+    }
+}
