@@ -34,13 +34,13 @@ public class GameManager {
     }
 
     private void printMenu(Player player) {
-        System.out.println("----------------------------------------");
+        System.out.println("--------------------------------------------------");
         System.out.println("현재 " + this.turn + "층에 있습니다.");
-        System.out.println("남은 체력: " + player.getHp() + " / " + player.getMaxHp() + " | 공격력: " + player.getDamage());
+        System.out.println("남은 체력: " + player.getHp() + " / " + player.getMaxHp() + " | 공격력: " + (player.getDamage() - 3) + " ~ " + (player.getDamage() + 3)  + " | 방어력: " + player.getShield());
         System.out.println("레벨: " + player.getLevel() + " | 경험치: " + player.getExp() + " / 100");
-        System.out.println("----------------------------------------");
-        System.out.println("1.나아가기 | 2. 휴식하기 | 4.도주");
-        System.out.println("----------------------------------------");
+        System.out.println("--------------------------------------------------");
+        System.out.println("1.전투하기 | 2. 휴식하기 | 4.도주");
+        System.out.println("--------------------------------------------------");
         
         System.out.print("행동 선택> ");
     }

@@ -11,17 +11,17 @@ public class BattleManager {
         Monster monster = MonsterFactory.getRandomMonster();
 
         System.out.println("\n전투 개시!");
-        System.out.println("\n---------------적이 나타났다!---------------\n");
+        System.out.println("\n--------------------적이 나타났다!--------------------\n");
         System.out.println("▶ 나타난 몬스터: "+ monster.getName()+"\n");
 
         outer: while(player.isAlive() && monster.isAlive()) {
         	
             
-        	System.out.println("적 남은 체력: " + monster.getHp() + " | 적의 공격력: " + monster.getDamage());
-            System.out.println("나의 남은 체력: " + player.getHp() + " | 나의 공격력: " + player.getDamage());
-            System.out.println("------------------------------------");
+        	System.out.println("적 남은 체력: " + monster.getHp() + " | 적의 공격력: " + (monster.getDamage() - 3) + " ~ " + (monster.getDamage() + 3));
+            System.out.println("나의 남은 체력: " + player.getHp() + " | 나의 공격력: " + (player.getDamage() - 3) + " ~ " + (player.getDamage() + 3));
+            System.out.println("--------------------------------------------------");
             System.out.println("1. 공격 | 2. 방어 | 3. 아이템 | 4. 도주");
-            System.out.println("------------------------------------");
+            System.out.println("--------------------------------------------------");
 
             
 
@@ -60,7 +60,7 @@ public class BattleManager {
         if (player.isAlive() && !monster.isAlive()) {
             System.out.println(player.getName() + "의 승리!");
             System.out.println("현재 남은 체력: " + player.getHp());
-            System.out.println(monster.getExpOffer() + " 경험치 획득!\n");
+            System.out.println("경험치 " + monster.getExpOffer() + " 획득!\n");
             player.gainExp(monster.getExpOffer());
         } else if(!player.isAlive() && monster.isAlive()) {
             System.out.println("여정이 끝을 맞았습니다..");

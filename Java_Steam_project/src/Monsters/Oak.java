@@ -6,7 +6,7 @@ import Steam_project.Monster;
 public class Oak extends Monster {
 	
 	public Oak() {
-		super("오크", 40, 20, 35, "오크");
+		super("오크", 40, 10, 20, 35);
 	}
 	
 	@Override

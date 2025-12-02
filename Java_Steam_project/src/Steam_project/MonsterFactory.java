@@ -2,7 +2,11 @@ package Steam_project;
 
 import java.util.Random;
 
+import Monsters.Ghost;
 import Monsters.Goblin;
+import Monsters.Oak;
+import Monsters.Skeleton;
+import Monsters.Troll;
 import Monsters.Wolf;
 
 public class MonsterFactory {
@@ -15,18 +19,17 @@ public class MonsterFactory {
 			case 0:
 				return new Goblin();
 			case 1:
-				return new Monster("홉고블린", 30, 10, 15, "고블린");
+				return new Monster("홉고블린", 30, 5, 10, 15);
 			case 2:
 				return new Wolf();
 			case 3:
-				return new Monster("스켈레톤", 15, 15, 20, "언데드");
+				return new Skeleton();
 			case 4:
-				return new Monster("오크", 40, 20, 35, "오크");
+				return new Oak();
 			case 5:
-				return new Monster("트롤", 50, 30, 50, "트롤");
+				return new Troll();
 			default:
-				return new Monster("고스트", 1, 1, 1, "유령");
-			
+				return new Ghost();
 		}
 	}
 }

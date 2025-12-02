@@ -8,7 +8,7 @@ public class Goblin extends Monster {
 	
 	
 	public Goblin() {
-		super("고블린", 20, 5, 10, "고블린");
+		super("고블린", 20, 5, 5, 10);
 	}
 
 	@Override
@@ -16,7 +16,7 @@ public class Goblin extends Monster {
 		super.attack(target);
 		
 		if (target.isAlive()) {
-			System.out.println("고블린의 독에 중독되었다!");
+			System.out.println("고블린의 칼에 베였다!");
 			System.out.println(poisonDamage + " 데미지를 입었다!\n");
 			target.hp -= poisonDamage;
 			poisonDamage += 1;
