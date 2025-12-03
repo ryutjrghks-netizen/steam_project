@@ -12,24 +12,16 @@ import Monsters.Wolf;
 public class MonsterFactory {
 	private static Random random = new Random();
 	
-	public static Monster getRandomMonster() {
-		int num = random.nextInt(6);		// 6종류 몬스터
+	public static Monster getRandomMonsterFirstFloor() {
+		int chance = random.nextInt(100);		// 0 ~ 99		
 		
-		switch(num) {
-			case 0:
-				return new Goblin();
-			case 1:
-				return new Monster("홉고블린", 30, 5, 10, 15);
-			case 2:
-				return new Wolf();
-			case 3:
-				return new Skeleton();
-			case 4:
-				return new Oak();
-			case 5:
-				return new Troll();
-			default:
-				return new Ghost();
-		}
+		if (chance < 40) return new Goblin();									//40%
+		else if (chance < 50) return new Monster("홉고블린", 30, 5, 10, 15);		//10%
+		else if (chance < 70) return new Wolf();								//20%
+		else if (chance < 80) return new Skeleton();							//10%
+		else if (chance < 90) return new Oak();									//10%
+		else if (chance < 95) return new Troll();								//5%
+		else return new Ghost();												//5%
+		
 	}
 }

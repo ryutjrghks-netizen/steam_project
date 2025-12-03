@@ -8,7 +8,7 @@ public class BattleManager {
 
     public void startBattle(Player player) {
 
-        Monster monster = MonsterFactory.getRandomMonster();
+        Monster monster = MonsterFactory.getRandomMonsterFirstFloor();
 
         System.out.println("\n전투 개시!");
         System.out.println("\n--------------------적이 나타났다!--------------------\n");

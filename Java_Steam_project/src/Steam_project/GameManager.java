@@ -35,7 +35,12 @@ public class GameManager {
 
     private void printMenu(Player player) {
         System.out.println("--------------------------------------------------");
+        if (turn == 10) {
+        	System.out.println("10층에 도달했습니다. 강렬한 기운이 느껴집니다.");
+        	turn -= 10;
+        }else {
         System.out.println("현재 " + this.turn + "층에 있습니다.");
+        }
         System.out.println("남은 체력: " + player.getHp() + " / " + player.getMaxHp() + " | 공격력: " + (player.getDamage() - 3) + " ~ " + (player.getDamage() + 3)  + " | 방어력: " + player.getShield());
         System.out.println("레벨: " + player.getLevel() + " | 경험치: " + player.getExp() + " / 100");
         System.out.println("--------------------------------------------------");
