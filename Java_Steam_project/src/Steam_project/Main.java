@@ -5,8 +5,12 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		Scanner scanner=new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
+		
 		GameManager gm = new GameManager();
+		BattleManager bm = new BattleManager(gm);
+		
+		gm.setBattleManager(bm);
 		
 		System.out.println("선형적인 던전을 탐험하며 몬스터들을 처치하고 승리를 쟁취하세요!\n");
 		

@@ -5,11 +5,27 @@ import java.util.Scanner;
 public class BattleManager {
 
     private Scanner scanner = new Scanner(System.in);
-
+    public GameManager gm;
+        
+    public BattleManager(GameManager gm) {
+    	this.gm = gm;
+    }
+    
+    public Monster makeMonster(int floor, int turn) {
+    	Monster monster = null;
+    	if (floor == 2 && turn == 0) {
+    		monster = MonsterFactory.getBossFirstFloor();
+    	}else if (floor == 1 && !(turn == 10)) {
+    		monster = MonsterFactory.getRandomMonsterFirstFloor();
+    	}
+    	return monster;
+    	
+    }
+    
     public void startBattle(Player player) {
-
-        Monster monster = MonsterFactory.getRandomMonsterFirstFloor();
-
+    	
+    	Monster monster = makeMonster(gm.floor, gm.turn);
+    	
         System.out.println("\n전투 개시!");
         System.out.println("\n--------------------적이 나타났다!--------------------\n");
         System.out.println("▶ 나타난 몬스터: "+ monster.getName()+"\n");

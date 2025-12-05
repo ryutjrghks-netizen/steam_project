@@ -46,7 +46,9 @@ public class Character {
 		System.out.println(name+"이(가) "+target.name+"을(를) 공격합니다.\n");
 		System.out.println(Character.this.name + " -> " + target.name + "에게 " + damage + " 데미지!");
 		
-		target.hp -= damage;
+		target.hp -= (damage - target.shield);
+		System.out.println("받은 데미지: " + damage + " - " + target.shield + " = " + (damage - target.shield));
+		
 		if (target.hp < 0) target.hp = 0;
 		
 		if(target.isAlive()) {

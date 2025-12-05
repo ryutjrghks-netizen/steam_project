@@ -3,10 +3,15 @@ package Steam_project;
 import java.util.Scanner;
 
 public class GameManager {
-	private int turn = 1;
+	public int turn = 1;
+	public int floor = 1;
+	private BattleManager bm;
 	
     private Scanner scanner = new Scanner(System.in);
-    private BattleManager battleManager = new BattleManager();
+    
+    public void setBattleManager(BattleManager bm) {
+    	this.bm = bm;
+    }
 
     public void startGame(Player player) {
         outer: while(player.isAlive()) {
@@ -16,7 +21,7 @@ public class GameManager {
 
             switch(option) {
                 case "1":
-                    battleManager.startBattle(player);
+                    bm.startBattle(player);
                     turn += 1;
                     break;
                 
@@ -35,11 +40,15 @@ public class GameManager {
 
     private void printMenu(Player player) {
         System.out.println("--------------------------------------------------");
+        
         if (turn == 10) {
-        	System.out.println("10층에 도달했습니다. 강렬한 기운이 느껴집니다.");
+        	System.out.println(floor + "층의 끝에 도달했습니다.");
+        	System.out.println("(" + this.turn + " / 10)" + " 강렬한 기운이 느껴집니다.");
+        	floor += 1;
         	turn -= 10;
         }else {
-        System.out.println("현재 " + this.turn + "층에 있습니다.");
+        	System.out.println("현재 " + floor + "층을 탐험하고 있습니다.");
+        	System.out.println("(" + this.turn + " / 10)");
         }
         System.out.println("남은 체력: " + player.getHp() + " / " + player.getMaxHp() + " | 공격력: " + (player.getDamage() - 3) + " ~ " + (player.getDamage() + 3)  + " | 방어력: " + player.getShield());
         System.out.println("레벨: " + player.getLevel() + " | 경험치: " + player.getExp() + " / 100");

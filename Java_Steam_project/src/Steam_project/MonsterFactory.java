@@ -20,8 +20,11 @@ public class MonsterFactory {
 		else if (chance < 70) return new Wolf();								//20%
 		else if (chance < 80) return new Skeleton();							//10%
 		else if (chance < 90) return new Oak();									//10%
-		else if (chance < 95) return new Troll();								//5%
 		else return new Ghost();												//5%
 		
+	}
+	
+	public static Monster getBossFirstFloor() {
+		return new Troll();
 	}
 }
