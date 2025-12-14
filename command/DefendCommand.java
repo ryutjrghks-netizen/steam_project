@@ -8,7 +8,7 @@ public class DefendCommand implements BattleCommand{
 	public boolean execute(Character subject, Character object) {
 		System.out.println("\n--- 방어 ---");
 		subject.setDefending(true);
-		System.out.println(subject.getName()+"이(가) 방어 태세를 갖춥니다.");
+		System.out.println(subject.getName()+"이(가) 방어 태세를 취했습니다!\n");
 		return false;
 	}
 	

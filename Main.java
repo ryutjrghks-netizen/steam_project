@@ -14,13 +14,13 @@ public class Main {
 		System.out.println("      ✨ 턴제 RPG 게임 시작 ✨");
 		System.out.println("---------------------------------");
 		
-		System.out.print("플레이어 이름을 작성하세요: ");
+		System.out.print("당신의 이름을 입력하세요: ");
 		
 		String name = scanner.nextLine().trim(); 
 		
 		Player player = new Player(name);
 		
-		System.out.println("\n>> " + player.getName() + "님, 게임을 시작합니다.");
+		System.out.println("\n>> " + player.getName() + "이(가) 던전에 발을 들였습니다..");
 		System.out.printf("   [초기 능력치] HP: %d | DMG: %d | DEF: %d | SPD: %d\n", 
 				player.getHp(), player.getDamage(), player.getDefense(), player.getSpeed());
 		

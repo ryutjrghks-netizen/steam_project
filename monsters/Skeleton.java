@@ -5,7 +5,7 @@ import Steam_project.object.Character;
 
 public class Skeleton extends Monster {
 	public Skeleton() {
-		super("스켈레톤", 15, 10, 15, 5, 15);
+		super("스켈레톤", 25, 15, 15, 5, 35);
 	}	
 		
 	@Override

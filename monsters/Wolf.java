@@ -5,7 +5,7 @@ import Steam_project.object.Monster;
 
 public class Wolf extends Monster {
 	public Wolf() {
-		super("늑대", 35, 5, 10, 10, 25); 
+		super("늑대", 35, 10, 10, 13, 40); 
 	}	
 		
 	@Override

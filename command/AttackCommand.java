@@ -8,8 +8,8 @@ public class AttackCommand implements BattleCommand {
     @Override
     public boolean execute(Character attacker, Character target) {
         
-        int damageToDeal = attacker.getDamage();
-        System.out.println(attacker.getName()+"의 공격");
+        int damageToDeal = attacker.calcDamage();
+        System.out.println(attacker.getName()+"의 공격!\n");
         
         if (target.isDefending()) {
             int defenseValue = target.getDefense();
@@ -32,11 +32,11 @@ public class AttackCommand implements BattleCommand {
         target.setDefending(false);
         
         if (target.isAlive()) {
-            System.out.println("--- 라운드 종료 ---"); 
             System.out.println(target.getName() + "의 남은 체력: " + target.getHp());
         } else {
             System.out.println(target.getName() + "이(가) " + attacker.getName() + "의 공격에 쓰러졌습니다.");
         }
+        
         
         return true; 
     }

@@ -5,7 +5,7 @@ import Steam_project.object.Character;
 public class Goblin extends Monster {
 	
 	public Goblin() {
-		super("고블린", 20, 5, 5, 10, 10);
+		super("고블린", 30, 10, 5, 10, 30);
 	}
 
 	@Override

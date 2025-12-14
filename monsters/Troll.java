@@ -7,7 +7,7 @@ public class Troll extends Monster {
 	private boolean isEnraged = false;
 	
 	public Troll() {
-		super("트롤", 50, 10, 20, 20, 50);	}	
+		super("트롤", 50, 25, 20, 15, 100);	}	
 	
 	@Override
     public void takeDamage(int damage) {

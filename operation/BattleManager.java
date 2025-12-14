@@ -26,7 +26,6 @@ public class BattleManager {
     
 public void startBattle(Player player, Monster monster) {		// 연습 모드에서의 전투 로직, 밑에 startBattle과 같은데 매개변수에 대상 몬스터가 포함됨
     	
-        System.out.println("전투 개시");
         System.out.println("\n---------------[" + monster.getName() + "]가 나타났다!---------------\n");
         
         player.setDefending(false);
@@ -115,8 +114,7 @@ public void startBattle(Player player, Monster monster) {		// 연습 모드에�
         
         if (isRunawaySuccess) {
             System.out.println(player.getName() + "은(는) 전투에서 도주했습니다.");
-            
-        } else if (player.isAlive()) {
+        } else if (player.isAlive() && !monster.isAlive()) {
             System.out.println(player.getName() + "의 승리!");
             player.gainExp(monster.getExpOffer()); 
             System.out.println("현재 남은 체력: " + player.getHp());
@@ -151,10 +149,14 @@ public void startBattle(Player player, Monster monster) {		// 연습 모드에�
     }
 
 	private String executePlayerTurn(Player player, Monster monster) {
-        System.out.println("\n-----------------");
-        System.out.println(player.getName() + " (HP: " + player.getHp() + ") | " + monster.getName() + " (HP: " + monster.getHp() + ")");
-        System.out.println("1.공격 | 2.방어 | 3.도주");
+
+        System.out.println("\n-------------------------------------------");
+        System.out.printf("%s (HP: %d, Atk: %d ~ %d, Spd: %d) | %s (HP: %d, Atk: %d ~ %d, Spd: %d)\n", player.getName(), player.getHp(),player.getDamage()-3,player.getDamage()+3, player.getSpeed(), monster.getName(), monster.getHp(), monster.getDamage()-3,monster.getDamage()+3, monster.getSpeed());
+        System.out.println("┌──────────────────────────┐");
+        System.out.println("│ 1.공격 │ 2.방어 │ 3.도주 │");
+        System.out.println("└──────────────────────────┘");
         System.out.print("행동 선택> ");
+        
         
         String battleOption = scanner.nextLine().trim();
 
