@@ -16,9 +16,9 @@ public class Player extends Character{
 		if(exp>=100) {
 			level++;
 			exp-=100;
-			damage+=5;
-			maxHp+=20;
-			hp+=100;
+			damage+=3;
+			maxHp+=10;
+			hp+=50;
 			speed+=2;
 			if(hp>maxHp){
 				hp=maxHp;

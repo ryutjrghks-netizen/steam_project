@@ -74,9 +74,8 @@ public void startBattle(Player player, Monster monster) {		// 연습 모드에�
     	
     	
 		
-    	System.out.println("전투 개시");
         System.out.println("\n---------------적이 나타났다!---------------\n");
-        System.out.println(monster.getName() + " (HP: " + monster.getHp() + ", Speed: " + monster.getSpeed() + ")");
+        System.out.printf("%s (HP: %d, Atk: %d ~ %d, Spd: %d)\n",monster.getName(), monster.getHp(), monster.getDamage()-3,monster.getDamage()+3, monster.getSpeed());
 
         player.setDefending(false);
         

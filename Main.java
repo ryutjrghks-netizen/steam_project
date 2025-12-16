@@ -21,6 +21,7 @@ public class Main {
 		Player player = new Player(name);
 		
 		System.out.println("\n>> " + player.getName() + "이(가) 던전에 발을 들였습니다..");
+
 		System.out.printf("   [초기 능력치] HP: %d | DMG: %d | DEF: %d | SPD: %d\n", 
 				player.getHp(), player.getDamage(), player.getDefense(), player.getSpeed());
 		

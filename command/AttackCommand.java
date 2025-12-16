@@ -19,7 +19,7 @@ public class AttackCommand implements BattleCommand {
                 damageToDeal = 1; 
             }
             
-            System.out.println(target.getName() + "이(가) 방어에 성공하여 방어력 " + defenseValue + "만큼 피해를 감소했습니다! (기본 공격)");
+            System.out.println(target.getName() + "이(가) 방어에 성공하여 방어력 " + defenseValue + "만큼 피해를 감소시켰습니다! (기본 공격)");
         }
         
         target.takeDamage(damageToDeal);
